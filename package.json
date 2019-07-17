@@ -1,0 +1,32 @@
+{
+  "name": "excel-combiner",
+  "version": "1.0.0",
+  "description": "Script to combine multiple excel worksheet",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start:dev": "concurrently --handle-input \"wait-on dist/main.js && nodemon\" \"tsc -w -p tsconfig.build.json\" "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mudada/excel-combiner.git"
+  },
+  "author": "Mudada",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mudada/excel-combiner/issues"
+  },
+  "homepage": "https://github.com/Mudada/excel-combiner#readme",
+  "dependencies": {
+    "@types/exceljs": "^0.5.3",
+    "@types/sanctuary": "^0.14.2",
+    "exceljs": "^1.13.0",
+    "sanctuary": "^2.0.0",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.3"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.1"
+  }
+}
