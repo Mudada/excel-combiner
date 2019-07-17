@@ -25,23 +25,13 @@ const inputFp: string
 const workbook: Workbook
     = new Workbook()
 
-const writeWorkbook = async (filePath: string, workBook: Workbook): Promise<Either<string, void>> => {
-    try {
-        await workbook.xlsx.writeFile(filePath)
-        return S.Right (undefined)
-    } catch (error) {
-        return S.Left (error)
-    }
+const writeWorkbook = (filePath: string, workBook: Workbook): Promise<void> => {
+        return workbook.xlsx.writeFile(filePath)
 }
 
-const readXlsxFile = async (filePath: string): Promise<Either<string, Workbook>> => {
-    try {
-        const workbook = new Workbook()
-        await workbook.xlsx.readFile(filePath)
-        return S.Right (workbook)
-    } catch (error) {
-        return S.Left (error)
-    }
+const readXlsxFile = (filePath: string): Promise<Workbook> => {
+    const workbook = new Workbook()
+    return workbook.xlsx.readFile(filePath)
 }
 
 const showSheetsName = (workbook: Workbook):void => {
@@ -51,8 +41,9 @@ const showSheetsName = (workbook: Workbook):void => {
 }
 
 const main = async () => {
-    const file = await readXlsxFile(inputFp)
-    S.either ((err: string):void => {console.log(err)}) (showSheetsName) (file)
+    const file = readXlsxFile(inputFp).then(
+        showSheetsName,
+        console.log)
 }
 
 main()
