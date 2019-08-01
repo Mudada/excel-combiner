@@ -22,9 +22,13 @@
     "@types/exceljs": "^0.5.3",
     "@types/sanctuary": "^0.14.2",
     "exceljs": "^1.13.0",
+    "file-system": "^2.2.2",
+    "jsonfile": "^5.0.0",
+    "minimist": "^1.2.0",
     "sanctuary": "^2.0.0",
     "ts-node": "^8.3.0",
-    "typescript": "^3.5.3"
+    "typescript": "^3.5.3",
+    "yargs": "^13.3.0"
   },
   "devDependencies": {
     "concurrently": "^4.1.1"
